@@ -3,6 +3,11 @@ package fifo;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 
+ * @author jandrei masiero
+ *
+ */
 public class Fifo {
 	public static void main(String[] args) {
 		Queue<Integer> lista = new LinkedList<Integer>();
