@@ -1,8 +1,8 @@
-package fifo;
+package Fifo;
 
 import java.util.LinkedList;
 
-import util.Process;
+import util.Processo;
 import util.Scan;
 
 /**
@@ -18,7 +18,7 @@ public class Fifo {
 
 		int quantidadeProcessosDesejados = scan.scanInt("Quantos processos deseja executar?");
 
-		LinkedList<Process> lista = new LinkedList<Process>();
+		LinkedList<Processo> lista = new LinkedList<>();
 
 		for (int i = 0; i < quantidadeProcessosDesejados; i++) {
 			//obtendo informações dos processos
@@ -30,7 +30,7 @@ public class Fifo {
 		System.out.println();
 		
 		while(!lista.isEmpty()) {
-			Process p = lista.pop();
+			Processo p = lista.pop();
 			System.out.println("executando o processo = " + p.getName() + ", " + p.getTime()+" segundos");
 			
 			Thread.sleep(p.getTime() * 1000);
@@ -39,10 +39,10 @@ public class Fifo {
 		}
 	}
 
-	private static Process getProcess() {
+	private static Processo getProcess() {
 		tamanhoFifo++;
 
-		Process p = new Process();
+		Processo p = new Processo();
 
 		System.out.println("informações do processo = " + tamanhoFifo);
 		p.setName(scan.scanString("nome:"));

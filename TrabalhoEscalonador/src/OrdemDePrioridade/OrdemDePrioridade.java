@@ -32,7 +32,6 @@ public class OrdemDePrioridade {
 			x += "Nome: " + p.getName() + " Tempo de Duração: " + p.getTime()
 					+ " Prioridade: " + p.getPrioridade() + "\n";
 		}
-
 		return x;
 	}
 

@@ -7,6 +7,10 @@ public class Processo {
 	private int tempoDeDuracao;
 	private int finishTime;
 	private int prioridade;
+	
+	public Processo() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Processo(String name, int tempoDeChegada, int tempoDeDuracao,
 			int prioridade) {
