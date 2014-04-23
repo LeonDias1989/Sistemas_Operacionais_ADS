@@ -1,11 +1,11 @@
-package procedure_order;
+package OrdemDePrioridade;
 
 public class App {
 
-	private ProcedureOrder po;
+	private OrdemDePrioridade po;
 
 	public App() {
-		po = new ProcedureOrder();
+		po = new OrdemDePrioridade();
 	}
 	
 	public static void main(String[] args) {

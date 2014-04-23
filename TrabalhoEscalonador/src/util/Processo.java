@@ -1,6 +1,6 @@
 package util;
 
-public class Process {
+public class Processo {
 
 	private String name;
 	private int tempoDeChegada;
@@ -8,8 +8,14 @@ public class Process {
 	private int finishTime;
 	private int prioridade;
 
-	public Process() {
-
+	public Processo(String name, int tempoDeChegada, int tempoDeDuracao,
+			int prioridade) {
+		super();
+		this.name = name;
+		this.tempoDeChegada = tempoDeChegada;
+		this.tempoDeDuracao = tempoDeDuracao;
+		this.prioridade = prioridade;
+		this.finishTime = 0;
 	}
 
 	public String getName() {
@@ -35,20 +41,21 @@ public class Process {
 	public void setFinishTime(int finishTime) {
 		this.finishTime = finishTime;
 	}
-	
+
 	public int getPrioridade() {
 		return prioridade;
 	}
-	
-	/**Use for Robin Round */
+
+	/** Use for Robin Round */
 	public void setPrioridade(int prioridade) {
 		this.prioridade = prioridade;
 	}
-	
+
 	public int getTempoDeChegada() {
 		return tempoDeChegada;
 	}
-	/**Use for Robin Round ?*/
+
+	/** Use for Robin Round ? */
 	public void setTempoDeChegada(int tempoDeChegada) {
 		this.tempoDeChegada = tempoDeChegada;
 	}
@@ -56,7 +63,7 @@ public class Process {
 	@Override
 	public String toString() {
 		return "Name: " + this.name + " Time execute: " + this.tempoDeDuracao
-				+ "Time Finish: " + this.finishTime;
+				+ "\nTime Finish: " + this.finishTime;
 	}
 
 }
