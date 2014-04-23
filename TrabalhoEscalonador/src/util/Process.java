@@ -5,6 +5,7 @@ public class Process {
 	private String name;
 	private int time;
 	private int finishTime;
+	private int prioridade;
 
 	public Process() {
 
@@ -32,6 +33,15 @@ public class Process {
 
 	public void setFinishTime(int finishTime) {
 		this.finishTime = finishTime;
+	}
+	
+	public int getPrioridade() {
+		return prioridade;
+	}
+	
+	/*user for Robin Round **/
+	public void setPrioridade(int prioridade) {
+		this.prioridade = prioridade;
 	}
 
 	@Override
