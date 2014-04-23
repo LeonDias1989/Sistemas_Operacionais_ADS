@@ -4,16 +4,29 @@ import java.util.Scanner;
 
 public class Scan {
 
-	Scanner var = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 
 	public String scanString() {
-
-		return var.nextLine();
+		return scanString(null);
 	}
 
-	public String scanInt() {
+	public String scanString(String mensagem) {
+		if (mensagem != null && !mensagem.isEmpty()) {
+			System.out.println(mensagem);
+		}
+		return scanner.nextLine();
+	}
 
-		return var.next();
+	public int scanInt() {
+		return scanInt(null);
+	}
+
+	public int scanInt(String mensagem) {
+		if (mensagem != null && !mensagem.isEmpty()) {
+			System.out.println(mensagem);
+		}
+
+		return Integer.parseInt(scanner.nextLine());
 	}
 
 }
