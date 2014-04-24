@@ -1,5 +1,9 @@
 package util;
-
+/**
+ * 
+ * @author Leon Dias
+ * 
+ */
 public class Processo {
 
 	private String name;
@@ -29,7 +33,7 @@ public class Processo {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	/**Retorna o tempo de duração do processo*/
 	public int getTime() {
 		return tempoDeDuracao;
 	}
@@ -38,6 +42,7 @@ public class Processo {
 		this.tempoDeDuracao = time;
 	}
 
+	/**Retorna  o tempo final do processo*/
 	public int getFinishTime() {
 		return finishTime;
 	}
@@ -46,6 +51,7 @@ public class Processo {
 		this.finishTime = finishTime;
 	}
 
+	/**Retorna a prioridade do processo*/
 	public int getPrioridade() {
 		return prioridade;
 	}
@@ -54,7 +60,7 @@ public class Processo {
 	public void setPrioridade(int prioridade) {
 		this.prioridade = prioridade;
 	}
-
+	/**Retorna o tempo em que o processo chegou para ser executado*/
 	public int getTempoDeChegada() {
 		return tempoDeChegada;
 	}
@@ -66,8 +72,9 @@ public class Processo {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.name + " Tempo de Execução: "
-				+ this.tempoDeDuracao + " Tempo final: " + this.finishTime +" Prioridade: " +this.prioridade +"\n";
+		return "Nome: " + this.name +" Tempo de chegada: " +this.tempoDeChegada + " Tempo de Execução: "
+				+ this.tempoDeDuracao + " Prioridade: " + this.prioridade
+				+ "\n";
 	}
 
 }
