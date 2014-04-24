@@ -2,11 +2,14 @@ package OrdemDePrioridade;
 
 public class App {
 
-	private OrdemDePrioridade po;
+	private OrdemDePrioridade ordemDePrioridade;
 
 	public App() {
-		po = new OrdemDePrioridade();
+		ordemDePrioridade = new OrdemDePrioridade();
 	}
+	
+	
+	
 	
 	public static void main(String[] args) {
 		

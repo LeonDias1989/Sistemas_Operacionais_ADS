@@ -1,9 +1,13 @@
 package OrdemDePrioridade;
 
 import java.util.LinkedList;
-
 import util.Processo;
 
+/**
+ * 
+ * @author Leon Dias
+ * 
+ */
 public class OrdemDePrioridade {
 
 	private LinkedList<Processo> listProcess = new LinkedList<>();
