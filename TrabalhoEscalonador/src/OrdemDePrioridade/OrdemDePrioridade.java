@@ -12,7 +12,7 @@ public class OrdemDePrioridade {
 
 	private LinkedList<Processo> listProcess = new LinkedList<>();
 
-	public LinkedList<Processo> getProcessos() {
+	public LinkedList<Processo> getLisaDeProcessos() {
 		return listProcess;
 	}
 
