@@ -7,7 +7,7 @@ public class Processo {
 	private int tempoDeDuracao;
 	private int finishTime;
 	private int prioridade;
-	
+
 	public Processo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -66,8 +66,8 @@ public class Processo {
 
 	@Override
 	public String toString() {
-		return "Name: " + this.name + " Time execute: " + this.tempoDeDuracao
-				+ "\nTime Finish: " + this.finishTime;
+		return "Nome: " + this.name + " Tempo de Execução: "
+				+ this.tempoDeDuracao + " Tempo final: " + this.finishTime +" Prioridade: " +this.prioridade +"\n";
 	}
 
 }

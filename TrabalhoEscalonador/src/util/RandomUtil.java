@@ -6,9 +6,9 @@ public class RandomUtil {
 
 	Random r = new Random();
 
-	public int geradorInt() {
+	public int geradorPrioridade() {
 
-		return r.nextInt(5) + 1;
+		return r.nextInt(5)+1;
 
 	}
 
