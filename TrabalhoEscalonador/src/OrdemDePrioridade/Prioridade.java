@@ -36,7 +36,6 @@ public class Prioridade {
 
 			listaDeProcessos.addLast(novoProcesso);
 			tempoCorrente += novoProcesso.getTime();
-			maiorPrioridade = novoProcesso.getPrioridade();
 			totalDeProcessos++;
 		}
 		return novoProcesso;
