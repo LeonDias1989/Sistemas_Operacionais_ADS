@@ -27,8 +27,8 @@ public class Prioridade {
 			listaDeProcessos.addFirst(novoProcesso);
 			tempoCorrente += novoProcesso.getTempoDeChegada();
 			totalDeProcessos++;
-		} else if (novoProcesso.getTempoDeChegada() < tempoCorrente
-				&& novoProcesso.getPrioridade() >= maiorPrioridade) {
+		} else if (novoProcesso.getTempoDeChegada() <= tempoCorrente
+				&& novoProcesso.getPrioridade() > maiorPrioridade) {
 
 			listaDeProcessos.addFirst(novoProcesso);
 			tempoCorrente += novoProcesso.getTempoDeChegada();
