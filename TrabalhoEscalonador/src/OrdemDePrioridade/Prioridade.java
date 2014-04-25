@@ -21,23 +21,21 @@ public class Prioridade {
 
 	public Processo adicionarProcesso(Processo novoProcesso) {
 
-		if (listaDeProcessos.isEmpty()
-				&& novoProcesso.getTempoDeChegada() < tempoCorrente) {
+		if (listaDeProcessos.isEmpty()) {
 
 			listaDeProcessos.addFirst(novoProcesso);
-			tempoCorrente += novoProcesso.getTempoDeChegada();
+			tempoCorrente += novoProcesso.getTime();
 			totalDeProcessos++;
-		} else if (novoProcesso.getTempoDeChegada() <= tempoCorrente
-				&& novoProcesso.getPrioridade() > maiorPrioridade) {
+		} else if (novoProcesso.getPrioridade() > maiorPrioridade) {
 
 			listaDeProcessos.addFirst(novoProcesso);
-			tempoCorrente += novoProcesso.getTempoDeChegada();
+			tempoCorrente += novoProcesso.getTime();
 			maiorPrioridade = novoProcesso.getPrioridade();
 			totalDeProcessos++;
 		} else {
 
 			listaDeProcessos.addLast(novoProcesso);
-			tempoCorrente += novoProcesso.getTempoDeChegada();
+			tempoCorrente += novoProcesso.getTime();
 			maiorPrioridade = novoProcesso.getPrioridade();
 			totalDeProcessos++;
 		}
