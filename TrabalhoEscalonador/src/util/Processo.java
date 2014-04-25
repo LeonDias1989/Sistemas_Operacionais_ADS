@@ -1,10 +1,11 @@
 package util;
+
 /**
  * 
  * @author Leon Dias
  * 
  */
-public class Processo {
+public class Processo implements Comparable<Processo> {
 
 	private String name;
 	private int tempoDeChegada;
@@ -33,7 +34,8 @@ public class Processo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	/**Retorna o tempo de duração do processo*/
+
+	/** Retorna o tempo de duração do processo */
 	public int getTime() {
 		return tempoDeDuracao;
 	}
@@ -42,7 +44,7 @@ public class Processo {
 		this.tempoDeDuracao = time;
 	}
 
-	/**Retorna  o tempo final do processo*/
+	/** Retorna o tempo final do processo */
 	public int getFinishTime() {
 		return finishTime;
 	}
@@ -51,7 +53,7 @@ public class Processo {
 		this.finishTime = finishTime;
 	}
 
-	/**Retorna a prioridade do processo*/
+	/** Retorna a prioridade do processo */
 	public int getPrioridade() {
 		return prioridade;
 	}
@@ -60,7 +62,8 @@ public class Processo {
 	public void setPrioridade(int prioridade) {
 		this.prioridade = prioridade;
 	}
-	/**Retorna o tempo em que o processo chegou para ser executado*/
+
+	/** Retorna o tempo em que o processo chegou para ser executado */
 	public int getTempoDeChegada() {
 		return tempoDeChegada;
 	}
@@ -72,9 +75,25 @@ public class Processo {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.name +" Tempo de chegada: " +this.tempoDeChegada + " Tempo de Execução: "
+		return "Nome: " + this.name + " Tempo de chegada: "
+				+ this.tempoDeChegada + " Tempo de Execução: "
 				+ this.tempoDeDuracao + " Prioridade: " + this.prioridade
 				+ "\n";
+	}
+
+	@Override
+	public int compareTo(Processo o) {
+
+		if (this.tempoDeChegada > o.tempoDeChegada)
+
+			return +1;
+
+		else if (this.tempoDeChegada < o.tempoDeChegada)
+
+			return -1;
+
+		else
+			return 0;
 	}
 
 }
