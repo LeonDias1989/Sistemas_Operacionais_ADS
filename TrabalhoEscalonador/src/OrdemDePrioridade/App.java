@@ -11,18 +11,16 @@ public class App {
 		Processo p2 = new Processo("C", 0, 2, 5);
 		Processo p3 = new Processo("D", 2, 3, 3);
 		Processo p4 = new Processo("E", 0, 2, 1);
-		
-		
-		Prioridade filaProcessos= new Prioridade();
-		
+
+		Prioridade filaProcessos = new Prioridade();
+
 		filaProcessos.adicionarProcesso(p0);
 		filaProcessos.adicionarProcesso(p1);
 		filaProcessos.adicionarProcesso(p2);
 		filaProcessos.adicionarProcesso(p3);
 		filaProcessos.adicionarProcesso(p4);
 
-		
-		System.out.println(filaProcessos.getLisaDeProcessos().toString());
+		 System.out.println(filaProcessos.getLisaDeProcessos().toString());
 
 	}
 

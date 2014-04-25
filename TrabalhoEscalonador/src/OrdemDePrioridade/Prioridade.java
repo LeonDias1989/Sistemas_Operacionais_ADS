@@ -1,6 +1,8 @@
 package OrdemDePrioridade;
 
+
 import java.util.LinkedList;
+
 import util.Processo;
 
 /**
@@ -20,29 +22,29 @@ public class Prioridade {
 	public Processo adicionarProcesso(Processo novoProcesso) {
 
 		if (listaDeProcessos.isEmpty()
-				&& novoProcesso.getTempoDeChegada() <= tempoCorrente) {
+				&& novoProcesso.getTempoDeChegada() < tempoCorrente) {
 
 			listaDeProcessos.addFirst(novoProcesso);
-			tempoCorrente += novoProcesso.getTime();
+			tempoCorrente += novoProcesso.getTempoDeChegada();
 			totalDeProcessos++;
-
-		} else if (novoProcesso.getTempoDeChegada() <= tempoCorrente
-				&& novoProcesso.getPrioridade() > maiorPrioridade) {
+		} else if (novoProcesso.getTempoDeChegada() < tempoCorrente
+				&& novoProcesso.getPrioridade() >= maiorPrioridade) {
 
 			listaDeProcessos.addFirst(novoProcesso);
-			tempoCorrente += novoProcesso.getTime();
+			tempoCorrente += novoProcesso.getTempoDeChegada();
 			maiorPrioridade = novoProcesso.getPrioridade();
 			totalDeProcessos++;
-
 		} else {
 
 			listaDeProcessos.addLast(novoProcesso);
-			tempoCorrente += novoProcesso.getTime();
+			tempoCorrente += novoProcesso.getTempoDeChegada();
 			maiorPrioridade = novoProcesso.getPrioridade();
 			totalDeProcessos++;
 		}
 		return novoProcesso;
 	}
+	
+
 
 	public void removerProcesso() {
 
