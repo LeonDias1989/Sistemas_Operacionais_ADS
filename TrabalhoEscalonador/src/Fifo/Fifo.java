@@ -26,7 +26,7 @@ public class Fifo {
 		}
 
 		System.out.println();
-		System.out.println("Iniciando a execução dos processos");
+		System.out.println("Iniciando a execucao dos processos");
 		System.out.println();
 		
 		while(!lista.isEmpty()) {
@@ -44,7 +44,7 @@ public class Fifo {
 
 		Processo p = new Processo();
 
-		System.out.println("informações do processo = " + tamanhoFifo);
+		System.out.println("informacaes do processo = " + tamanhoFifo);
 		p.setName(scan.scanString("nome:"));
 		p.setTime(scan.scanInt("tempo(em segundos):"));
 
