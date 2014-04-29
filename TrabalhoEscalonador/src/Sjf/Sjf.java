@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import util.Processo;
 import util.ProcessoComparator;
+import util.ProcessoTipoOrdenacao;
 import util.Scan;
 
 public class Sjf {
@@ -22,7 +23,7 @@ public class Sjf {
 			lista.add(getProcess());
 		}
 		
-		Collections.sort(lista, new ProcessoComparator());
+		Collections.sort(lista, new ProcessoComparator(ProcessoTipoOrdenacao.TEMPO_DURACAO));
 		
 		System.out.println("-----------------------");
 		System.out.println("Iniciando a execução dos processos");
@@ -30,9 +31,9 @@ public class Sjf {
 		
 		while(!lista.isEmpty()) {
 			Processo p = lista.pop();
-			System.out.println("executando o processo = " + p.getName() + ", " + p.getTime()+" segundos");
+			System.out.println("executando o processo = " + p.getName() + ", " + p.getTempoDuracao()+" segundos");
 			
-			Thread.sleep(p.getTime() * 1000);
+			Thread.sleep(p.getTempoDuracao() * 1000);
 			
 			System.out.println("fim do processo = " + p.getName());
 		}
@@ -45,7 +46,7 @@ public class Sjf {
 
 		System.out.println("informações do processo = " + tamanhoFifo);
 		p.setName(scan.scanString("nome:"));
-		p.setTime(scan.scanInt("tempo(em segundos):"));
+		p.setTempoDuracao(scan.scanInt("tempo(em segundos):"));
 
 		return p;
 	}

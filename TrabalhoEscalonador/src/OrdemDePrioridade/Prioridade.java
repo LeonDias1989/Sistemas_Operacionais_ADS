@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import util.Processo;
+import util.ProcessoComparator;
+import util.ProcessoTipoOrdenacao;
 import util.Scan;
 
 /**
@@ -36,8 +38,7 @@ public class Prioridade {
 	}
 
 	public List<Processo> ordenarProcessos() {
-
-		Collections.sort(filaProcessos);
+		Collections.sort(filaProcessos,new ProcessoComparator(ProcessoTipoOrdenacao.TEMPO_CHEGADA));
 		return filaProcessos;
 	}
 
@@ -46,9 +47,7 @@ public class Prioridade {
 		Processo auxiliar = null;
 
 		for (Processo p : filaProcessos) {
-
-			if (p.getPrioridade() > maiorPrioridade
-					&& p.getTempoDeChegada() <= tempoCorrente) {
+			if (p.getPrioridade() > maiorPrioridade) {
 				maiorPrioridade = p.getPrioridade();
 				auxiliar = p;
 			}
@@ -56,7 +55,7 @@ public class Prioridade {
 		// Zero Priority
 		maiorPrioridade = -1;
 		// Get Current Time from the chose process
-		tempoCorrente += auxiliar.getTime();
+		tempoCorrente += auxiliar.getTempoDuracao();
 
 		return auxiliar;
 	}
@@ -80,7 +79,7 @@ public class Prioridade {
 			System.out.println("Entrada do Processo: ");
 			int entrada = teclado.scanInt();
 
-			System.out.println("Tempo de Execução do Processo: ");
+			System.out.println("Tempo de Execuï¿½ï¿½o do Processo: ");
 			int tempoExecucao = teclado.scanInt();
 
 			System.out.println("Prioridade do Processo: ");
@@ -92,7 +91,7 @@ public class Prioridade {
 			System.out.println("Processo " +nome +" criado com sucesso !");
 		}
 
-		System.out.println("\n\nColocando os processo na fila de execução.");
+		System.out.println("\n\nColocando os processo na fila de execuï¿½ï¿½o.");
 		Thread.sleep(500);
 		System.out.print(".");
 		Thread.sleep(500);
@@ -109,9 +108,9 @@ public class Prioridade {
 
 			System.out.println("\n\nExecutando processo " + auxiliar.getName()
 					+ "...");
-			Thread.sleep(1000 * auxiliar.getTime());
+			Thread.sleep(1000 * auxiliar.getTempoDuracao());
 			System.out.println("Processo " + auxiliar.getName()
-					+ " executado em " + auxiliar.getTime() + " segundos"
+					+ " executado em " + auxiliar.getTempoDuracao() + " segundos"
 					+ "\nTempo Atual: " + tempoCorrente);
 
 		}

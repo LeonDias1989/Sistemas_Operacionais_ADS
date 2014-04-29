@@ -18,20 +18,28 @@ public static void main(String[] args) {
 		
 		//Sort Process
 		filaProcessos.ordenarProcessos();
+		System.out.println(filaProcessos.getFilaProcessos());
 		
 		//Execute Process
 		System.out.println("Processo Executado: " +filaProcessos.remover(filaProcessos.getMaiorPrioridade()));
 		System.out.println("Tempo Atual: " +Prioridade.tempoCorrente);
 		System.out.println(filaProcessos.getFilaProcessos());
+		
 		System.out.println("Processo Executado: " +filaProcessos.remover(filaProcessos.getMaiorPrioridade()));
 		System.out.println("Tempo Atual: " +Prioridade.tempoCorrente);
 		System.out.println(filaProcessos.getFilaProcessos());
+		
 		System.out.println("Processo Executado: " +filaProcessos.remover(filaProcessos.getMaiorPrioridade()));
 		System.out.println("Tempo Atual: " +Prioridade.tempoCorrente);
+		System.out.println(filaProcessos.getFilaProcessos());
+		
 		System.out.println("Processo Executado: " +filaProcessos.remover(filaProcessos.getMaiorPrioridade()));
 		System.out.println("Tempo Atual: " +Prioridade.tempoCorrente);
+		System.out.println(filaProcessos.getFilaProcessos());
+		
 		System.out.println("Processo Executado: " +filaProcessos.remover(filaProcessos.getMaiorPrioridade()));
 		System.out.println("Tempo Atual: " +Prioridade.tempoCorrente);
+		System.out.println(filaProcessos.getFilaProcessos());
 		
 		System.out.println(filaProcessos.getFilaProcessos());
 		

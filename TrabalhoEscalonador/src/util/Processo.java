@@ -5,20 +5,20 @@ package util;
  * @author Leon Dias
  * 
  */
-public class Processo implements Comparable<Processo> {
+public class Processo {
 
 	private String name;
 	private int tempoDeChegada;
 	private int tempoDeDuracao;
 	private int finishTime;
 	private int prioridade;
+	private boolean acabou = false;
 
 	public Processo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Processo(String name, int tempoDeChegada, int tempoDeDuracao,
-			int prioridade) {
+	public Processo(String name, int tempoDeChegada, int tempoDeDuracao, int prioridade) {
 		super();
 		this.name = name;
 		this.tempoDeChegada = tempoDeChegada;
@@ -35,12 +35,12 @@ public class Processo implements Comparable<Processo> {
 		this.name = name;
 	}
 
-	/** Retorna o tempo de duração do processo */
-	public int getTime() {
+	/** Retorna o tempo de duraï¿½ï¿½o do processo */
+	public int getTempoDuracao() {
 		return tempoDeDuracao;
 	}
 
-	public void setTime(int time) {
+	public void setTempoDuracao(int time) {
 		this.tempoDeDuracao = time;
 	}
 
@@ -75,25 +75,41 @@ public class Processo implements Comparable<Processo> {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.name + " Tempo de chegada: "
-				+ this.tempoDeChegada + " Tempo de Execução: "
-				+ this.tempoDeDuracao + " Prioridade: " + this.prioridade
-				+ "\n";
+		return "Nome: " + this.name + " Tempo de chegada: " + this.tempoDeChegada + " Tempo de Execucao: " + this.tempoDeDuracao + " Prioridade: " + this.prioridade + "\n";
+	}
+
+	public boolean isAcabou() {
+		return acabou;
+	}
+
+	public void setAcabou(boolean acabou) {
+		this.acabou = acabou;
+	}
+
+	// nÃ£o alterar esse codigos abaixo.
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
 	}
 
 	@Override
-	public int compareTo(Processo o) {
-
-		if (this.tempoDeChegada > o.tempoDeChegada)
-
-			return +1;
-
-		else if (this.tempoDeChegada < o.tempoDeChegada)
-
-			return -1;
-
-		else
-			return 0;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Processo other = (Processo) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 
 }

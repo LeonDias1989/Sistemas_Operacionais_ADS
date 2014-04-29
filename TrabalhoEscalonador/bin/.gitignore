@@ -1,4 +1,5 @@
-/util
-/Fifo
-/Sjf
-/OrdemDePrioridade
+/Circular/
+/Fifo/
+/OrdemDePrioridade/
+/Sjf/
+/util/
