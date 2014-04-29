@@ -127,13 +127,15 @@ public class Circular {
 			String nome = "Processo-" + i;
 			//imprimo o nome do processo
 			System.out.println("Criando " + nome);
+			
+			//solicito o tempo de chegada
+			int tempoDeChegada= teclado.scanInt("Tempo de Chegada: ");
 			//solicito o tempo de execução desse processo
 			int tempoExecucao = teclado.scanInt("Tempo de Execucao: ");
 			//solicito a prioridade
 			int prioridadeDoProcesso = teclado.scanInt("Prioridade: ");
-
 			//adiciono na lista de processos
-			circular.adicionar(new Processo(nome, circular.getFilaProcessos().size() + 1, tempoExecucao, prioridadeDoProcesso));
+			circular.adicionar(new Processo(nome, tempoDeChegada, tempoExecucao, prioridadeDoProcesso));
 
 			System.out.println(nome + " criado com sucesso !\n\n");
 		}
