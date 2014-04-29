@@ -60,6 +60,9 @@ public class Processo {
 
 	/** Use for Robin Round */
 	public void setPrioridade(int prioridade) {
+		if (prioridade <0) {
+			prioridade = 0;
+		}
 		this.prioridade = prioridade;
 	}
 

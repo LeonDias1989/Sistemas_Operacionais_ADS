@@ -84,7 +84,7 @@ public class Circular {
 		}
 
 		
-		System.out.println("Executando processo " + processo.getName() + "...");
+		System.out.println("Executando processo " + processo);
 		for (int i = 0; i < quantum; i++) {
 			//esperando o quantum acabar
 			Thread.sleep(1 * 1000);
@@ -95,16 +95,25 @@ public class Circular {
 		//diminuo em 1 a prioridade	
 		processo.setPrioridade(processo.getPrioridade() - 1);
 
-		System.out.println("restando " + processo.getTempoDuracao() + " -> " + processo);
-
 		//se tempo de duração acabou sinal que nao tme mais prioridade e que o procesos finalizou
 		if (processo.getTempoDuracao() <= 0) {
 			processo.setAcabou(true);
 			processo.setPrioridade(0);
 		}
 
+		System.out.println("Tempo Medio: "+pegaTempoMedioProcessos());
+
 		//manda executar novamente
 		executaProcessos();
+	}
+	
+	public float pegaTempoMedioProcessos(){
+		List<Processo> p = getFilaProcessos();
+		float somatorio = 0;
+		for (Processo proc : p) {
+			somatorio += proc.getTempoDuracao();
+		}
+		return somatorio / Float.valueOf(p.size()).floatValue();
 	}
 
 	public static void main(String[] args) throws Exception {
