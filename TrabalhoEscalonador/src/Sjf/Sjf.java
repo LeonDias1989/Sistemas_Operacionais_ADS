@@ -1,7 +1,8 @@
 package Sjf;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.List;
 
 import util.Processo;
 import util.ProcessoComparator;
@@ -9,49 +10,47 @@ import util.ProcessoTipoOrdenacao;
 import util.Scan;
 
 public class Sjf {
-	static int tamanhoFifo = 0;
+	
+	static int tamanhoSjf = 0;
 	static Scan scan = new Scan();
 
 	public static void main(String[] args) throws Exception {
 
-		int quantidadeProcessosDesejados = scan.scanInt("Quantos processos deseja executar?");
+		int quantidadeProcessosDesejados = scan
+				.scanInt("Quantos processos deseja executar?");
 
-		LinkedList<Processo> lista = new LinkedList<>();
+		List<Processo> lista = new ArrayList();
 
 		for (int i = 0; i < quantidadeProcessosDesejados; i++) {
-			//obtendo informações dos processos
+			// obtendo informações dos processos
 			lista.add(getProcess());
 		}
-		
-		Collections.sort(lista, new ProcessoComparator(ProcessoTipoOrdenacao.TEMPO_DURACAO));
-		
-		System.out.println("-----------------------");
-		System.out.println("Iniciando a execução dos processos");
-		System.out.println("-----------------------");
-		
-		while(!lista.isEmpty()) {
-			Processo p = lista.pop();
-			System.out.println("executando o processo = " + p.getName() + ", " + p.getTempoDuracao()+" segundos");
-			
-			Thread.sleep(p.getTempoDuracao() * 1000);
-			
-			System.out.println("fim do processo = " + p.getName());
+
+		Collections.sort(lista, new ProcessoComparator(
+				ProcessoTipoOrdenacao.TEMPO_DURACAO));
+
+		System.out.println();
+		System.out.println("Iniciando a execucao dos processos");
+		System.out.println();
+
+		for (Processo processo : lista) {
+			System.out.println("executando o processo = " + processo);
+			Thread.sleep(processo.getTempoDuracao() * 1000);
+			System.out.println("fim do processo = " + processo.getName());
 		}
 	}
 
 	private static Processo getProcess() {
-		tamanhoFifo++;
+		tamanhoSjf++;
 
 		Processo p = new Processo();
 
-		System.out.println("informações do processo = " + tamanhoFifo);
+		System.out.println("informacaes do processo = " + tamanhoSjf);
 		p.setName(scan.scanString("nome:"));
-		p.setTempoDuracao(scan.scanInt("tempo(em segundos):"));
+		p.setTempoDeChegada(scan.scanInt("tempo chegada(em segundos):"));
+		p.setTempoDuracao(scan.scanInt("tempo Duracao(em segundos):"));
 
 		return p;
 	}
 
 }
-
-
-
