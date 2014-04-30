@@ -13,6 +13,7 @@ public class Sjf {
 	
 	static int tamanhoSjf = 0;
 	static Scan scan = new Scan();
+	static int tempoCorrente = 0;
 
 	public static void main(String[] args) throws Exception {
 
@@ -35,8 +36,9 @@ public class Sjf {
 
 		for (Processo processo : lista) {
 			System.out.println("executando o processo = " + processo);
+			tempoCorrente+= processo.getTempoDuracao();
 			Thread.sleep(processo.getTempoDuracao() * 1000);
-			System.out.println("fim do processo = " + processo.getName());
+			System.out.println("fim do processo = " + processo.getName() +"\nTempo Corrente: " +tempoCorrente);
 		}
 	}
 

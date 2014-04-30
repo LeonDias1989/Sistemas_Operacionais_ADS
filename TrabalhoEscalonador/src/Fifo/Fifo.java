@@ -17,6 +17,7 @@ import util.Scan;
 public class Fifo {
 	static int tamanhoFifo = 0;
 	static Scan scan = new Scan();
+	static int tempoCorrente = 0;
 
 	public static void main(String[] args) throws Exception {
 
@@ -29,8 +30,9 @@ public class Fifo {
 			// obtendo informações dos processos
 			lista.add(getProcess());
 		}
-		
-		Collections.sort(lista,new ProcessoComparator(ProcessoTipoOrdenacao.TEMPO_CHEGADA));
+
+		Collections.sort(lista, new ProcessoComparator(
+				ProcessoTipoOrdenacao.TEMPO_CHEGADA));
 
 		System.out.println();
 		System.out.println("Iniciando a execucao dos processos");
@@ -38,8 +40,10 @@ public class Fifo {
 
 		for (Processo processo : lista) {
 			System.out.println("executando o processo = " + processo);
+			tempoCorrente += processo.getTempoDuracao();
 			Thread.sleep(processo.getTempoDuracao() * 1000);
-			System.out.println("fim do processo = " + processo.getName());
+			System.out.println("fim do processo = " + processo.getName()
+					+ "\nTempo corrente: " + tempoCorrente);
 		}
 	}
 
